@@ -41,7 +41,8 @@ public class PersonController {
 
         // バリデーションエラーがある場合はindex.htmlを表示
         if (result.hasErrors()) {
-            
+            model.addAttribute("people", repository.findAll()); //一覧用データの用意
+            return "person/index";
         }
 
         // createの第一引数のString nameでindexからpostされた内容を受け取る
